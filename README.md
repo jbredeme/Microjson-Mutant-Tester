@@ -9,6 +9,9 @@ tstl_rt
 ## Dependencies
 * [Python 2.7.x](https://www.python.org/) - Implementation language.
 
+## Author
+* **Jarid Bredemeier**
+
 ## Resources
 * [Template Scripting Testing Language Tool]
 * [An introduction to property-based testing]
