@@ -1,0 +1,59 @@
+#HINT: --depth 300
+
+# Jarid Bredemeier
+# Saturday, March 18, 2017
+
+@import microjson as microjson
+@import math
+
+# Create pools
+pool: <int> 3
+pool: <string> 3
+pool: <float> 3
+pool: <bool> 2
+pool: <list> 5
+pool: <dict> 5
+pool: <microjsonstring> 5
+
+# Assign values
+<int> := <[0..9]>
+<int> = <int> * 10
+<int> = <int> + <int>
+
+<string> := ""
+<string> += <['a'..'z']>
+<string> += <['A'..'Z']>
+<string> += <[" ",":","[","]","{","}"]>
+<string> += ","
+<string> += chr(34) #<= Double quote
+<string> += chr(39) #<= Single quote
+
+<float> := float(<int>)
+
+<bool> := True
+<bool> := False
+
+<list> := []
+<list>.append(<string>)
+<list>.append(<int>)
+<list>.append(<float>)
+<list>.append(<bool>)
+
+<dict> := {}
+<dict> [<string>] = <string>
+<dict> [<string>] = <int>
+<dict> [<string>] = <float>
+<dict> [<string>] = <bool>
+
+# Define actions
+#<microjsonstring> := microjson.encode(<list>)
+#<microjsonstring> := microjson.encode(<dict>)
+#microjson.encode(<microjsonstring>)
+
+# Define Properties
+property: <int> == microjson.decode(microjson.encode(<int,1>))
+property: <string> == microjson.decode(microjson.encode(<string,1>))
+property: <float> == microjson.decode(microjson.encode(<float,1>))
+property: <bool> == microjson.decode(microjson.encode(<bool,1>))
+property: <dict> == microjson.decode(microjson.encode(<dict,1>))
+property: <list> == microjson.decode(microjson.encode(<list,1>))
