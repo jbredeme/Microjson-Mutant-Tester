@@ -6,7 +6,7 @@ This test harness when run with the random tester, does not produce any failing 
 tstl microjson.tstl
 tstl_rt
 ```
-## Dependencieshttps://github.com/jbredeme
+## Dependencies
 * [Python 2.7.x](https://www.python.org/) - Implementation language.
 
 ## Resources
